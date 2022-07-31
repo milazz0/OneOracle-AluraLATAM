@@ -1,0 +1,87 @@
+<!--
+<meta charset="UTF-8">  
+<title> 3er HTML</title>
+<script>	
+	//modo manual Math.max
+	//variables
+	var litrosAuto = 40;
+	var kmGasolina 	= 480;
+	var kmAlcohol	= 500;
+	var kmDiesel	= 900;
+	var rendimientoGasolina = kmGasolina/litrosAuto;
+	var rendimientoAlcohol	= kmAlcohol/litrosAuto;
+	var rendimientoDiesel	= kmDiesel/litrosAuto;
+
+	var ganador	= Math.max(rendimientoAlcohol,rendimientoGasolina,rendimientoDiesel);
+	var nombreGanador = "Ganador";
+		if (ganador == rendimientoGasolina) {nombreGanador = "Gasolina"}
+		if (ganador == rendimientoAlcohol) {nombreGanador = "Alcohol"}
+		if (ganador == rendimientoDiesel) {nombreGanador = "Diesel"};
+
+	function saltarlinea() 
+	{
+		document.write("<br>");
+	}
+
+
+	document.write("<h3>¿Qué Combustible elegir?</h3>");
+	document.write("Recorrido 40 Lt Gasolina: " + kmGasolina + " Km" + "<br>");
+	document.write("Recorrido 40 Lt Alcohol: " + kmAlcohol + " Km" + "<br>");
+	document.write("Recorrido 40 Lt Diesel: " + kmDiesel + " Km" + "<br>");
+	saltarlinea();
+	document.write("Se recomienda: " + nombreGanador + " con un rendimiento de "  + ganador + " Km/litro" + "<br>");
+</script>
+
+
+
+ modo recorriendo array 
+-->
+
+<meta charset="UTF-8">  
+<title> 3er HTML</title>
+<script>	
+
+	function saltarlinea() 
+	{
+	document.write("<br>");
+	}
+
+	function imprimir(frase) 
+	{
+	document.write(frase);
+	saltarlinea();
+	}
+	function mostrarAlerta(mensaje) 
+	{
+        alert("***" + mensaje + "***");
+    }
+
+	imprimir("<h3>¿Que Combustible elegir?</h3>");
+
+	// Este codigo me recomienda el combustible que tiene mejor rendimiento
+
+	var combustibleKm = 
+	{
+		"Gasolina": 300, 
+		"Alcohol": 500, 
+		"Diesel": 1000, 
+		"Etanol": 900
+	};
+	var litrosAuto = 40;
+	var rendimiento = 0;
+	var ganador;
+
+	for (var key in combustibleKm) 
+	{
+		imprimir("Rerorrido con 40 litros: "+ key + " : " + combustibleKm[key] + " Km");
+	    if (rendimiento < combustibleKm[key]/litrosAuto)
+	    {
+	    	rendimiento = combustibleKm[key]/litrosAuto;
+	        ganador = key;
+	    }
+	}
+	saltarlinea();
+	imprimir("Mejor Rendimiento con "+ litrosAuto + " Litros:  " + ganador + "  "+ rendimiento + " Km/L"); 
+	mostrarAlerta("Mejor Rendimiento con "+ litrosAuto + " Litros:  " + ganador + "  "+ rendimiento + " Km/L");
+</script>
+
